@@ -1,7 +1,7 @@
-# Streamlit App for [Project Name]
+# Streamlit App for Image Captioning
 
 ## Description
-Welcome to the **[Project Name]** Streamlit app! This is a web-based application built using Python and Streamlit to [briefly describe the functionality of the project]. This project leverages powerful machine learning and data visualization tools to provide an intuitive and interactive experience for the users.
+Welcome to the *Image Caption Generator** Streamlit app! This is a web-based application built using Python and Streamlit to https://imgcap.streamlit.app/ . This project leverages powerful machine learning and data visualization tools to provide an intuitive and interactive experience for the users.
 
 ---
 
@@ -34,3 +34,16 @@ To run this project locally, follow these steps:
 ### Step 1: Clone the Repository
 ```bash
 git clone https://github.com/your-username/your-repository-name.git
+```
+### Step 2: Create a Virtual Environment (Optional but Recommended)
+```bash
+python3 -m venv venv
+```
+### Step 3: Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+### Step 4: Run the Streamlit App
+```bash
+streamlit run app.py
+```
