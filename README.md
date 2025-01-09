@@ -33,7 +33,7 @@ To run this project locally, follow these steps:
 
 ### Step 1: Clone the Repository
 ```bash
-git clone https://github.com/your-username/your-repository-name.git
+git clone https://github.com/karan89200/ImageCaption.git
 ```
 ### Step 2: Create a Virtual Environment (Optional but Recommended)
 ```bash
