@@ -1,5 +1,0 @@
-streamlit
-numpy
-tensorflow==2.18.0
-pickle5
-matplotlib
