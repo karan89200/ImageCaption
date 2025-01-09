@@ -1,0 +1,5 @@
+streamlit==1.25.0
+numpy==1.24.3
+tensorflow==2.15.0
+pickle5==0.0.11
+matplotlib==3.7.1
