@@ -5,6 +5,14 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
 import pickle
+import zipfile
+import os
+
+
+# Function to unzip the models if not already extracted
+def extract_zip(zip_file_path, extract_to_path):
+    with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
+        zip_ref.extractall(extract_to_path)
 
 
 # Function to generate caption
@@ -43,10 +51,27 @@ def main():
         "Choose images...", type=["jpg", "jpeg", "png"], accept_multiple_files=True
     )
 
-    # Paths for the saved models and tokenizer
-    model_path = "models/model.keras"  # Replace with the actual path
-    tokenizer_path = "models/tokenizer.pkl"  # Replace with the actual path
-    feature_extractor_path = "models/feature_extractor.keras"  # Replace with the actual path
+    # Paths for the saved models and tokenizer zip files
+    feature_zip_path = "feature.zip"  # Path to the feature.zip file
+    model_zip_path = "model.zip"      # Path to the model.zip file
+    tokenizer_zip_path = "tokenizer.zip"  # Path to the tokenizer.zip file
+
+    # Folder to extract models
+    extract_folder = "models/"
+    
+    # Check if models are already extracted, if not, extract them
+    if not os.path.exists(extract_folder):
+        os.makedirs(extract_folder)
+
+    # Extract zip files
+    extract_zip(feature_zip_path, extract_folder)
+    extract_zip(model_zip_path, extract_folder)
+    extract_zip(tokenizer_zip_path, extract_folder)
+
+    # Paths to the extracted models and tokenizer
+    feature_extractor_path = os.path.join(extract_folder, 'feature_extractor.keras')
+    model_path = os.path.join(extract_folder, 'model.keras')
+    tokenizer_path = os.path.join(extract_folder, 'tokenizer.pkl')
 
     # Load the trained models and tokenizer
     caption_model = load_model(model_path)
